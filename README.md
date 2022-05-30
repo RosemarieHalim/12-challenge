@@ -46,7 +46,6 @@ THEN I am able to view comments but I am prompted to log in again before I can a
 
 # Challenge 12
 ![GIF](dist/recording.gif)
-![Video](dist/recording.mp4)
 
 ## Purpose
 Deploy CMS-style blog site for publishing articles, blog posts, and creator's thoughts and opinions
@@ -61,7 +60,7 @@ Deploy CMS-style blog site for publishing articles, blog posts, and creator's th
 * bcrypt
 
 ## Website
-https://rosemariehalim.github.io/12-challenge/
+https://challenge-12.herokuapp.com/
 
 ---
 
