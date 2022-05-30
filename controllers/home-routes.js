@@ -3,12 +3,11 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
-  console.log(req.session);
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
       'title',
+      'content',
       'created_at',
     ],
     include: [
@@ -27,7 +26,6 @@ router.get('/', (req, res) => {
     ]
   })
     .then(dbPostData => {
-      // pass a single post object into the homepage template
       const posts = dbPostData.map(post => post.get({ plain: true }));
       res.render('homepage', {
         posts,
@@ -65,8 +63,8 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
       'title',
+      'content',
       'created_at',
     ],
     include: [
@@ -90,10 +88,8 @@ router.get('/post/:id', (req, res) => {
         return;
       }
 
-      // serialize the data
       const post = dbPostData.get({ plain: true });
 
-      // pass data to template
       res.render('single-post', {
         post,
         loggedIn: req.session.loggedIn
